@@ -32,5 +32,5 @@ switch (num) {                    // конструкция switch всегда 
         break;
     default: 
         console.log('Не в этот раз');
-        break
+        break;
 }
