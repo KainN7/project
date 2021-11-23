@@ -43,4 +43,4 @@ const calc = (a, b) =>{
     return a + b;
 };
 
-const x = calc
+const x = calc;
