@@ -1,0 +1,30 @@
+button {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: yellow;
+    border: none;
+  }
+
+.blue.some {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: rgb(0, 26, 255);
+    border: none;
+}
+
+.red {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: red;
+    border: none;
+}
+
+.btn-block {
+    background-color: grey;
+}
