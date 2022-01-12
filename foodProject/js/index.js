@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Timer
 
-    const deadline = '2021-12-29'; // дата нормально парсится
+    const deadline = '2022-02-12'; // дата нормально парсится
 
     function getTimeRemaining(endtime) {
         const t = Date.parse(endtime) - Date.parse(new Date()),  // количество милесекунд в нашем конечном времени.
@@ -96,10 +96,46 @@ setClock('.timer', deadline);
 
     // Modal
 
-    const modalTrigger = document.querySelectorAll('[data-modal]'),
-          modal = document.querySelector('.modal'),
-          modalCloseBtn = document.querySelectorAll('[data-close]')
+    // квадратные скобки потому что получаем через атрибут.
 
+    const modalTrigger = document.querySelectorAll('[data-modal]'), 
+          modal = document.querySelector('.modal'),
+          modalCloseBtn = document.querySelector('[data-close]');
+
+    modalTrigger.forEach(btn => {   // необходимо перебирать псевдомассив.
+        // сам псевдо массив ничего не знает о странице и событиях которые там могут произойти. 
+        btn.addEventListener('click', () => {
+            modal.classList.add('show');  // можно и так сделать.
+            modal.classList.remove('hide');
+            // modal.classList.toggle('show'); 
+            // если класса нет, добавит, если есть, уберёт.
+            document.body.style.overflow = 'hidden';   
+            // блокируем прокрутку сайта при открытии модального окна.
+        });
+    });
+
+    function closeModal() {
+        modal.classList.add('hide');
+        modal.classList.remove('show');
+        // modal.classList.toggle('show');
+        document.body.style.overflow = '';
+    }
+    
+    modalCloseBtn.addEventListener('click', closeModal); // не вызываем, просто передааём.
+
+    // закрываем модальное окно при клике на подложку
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            // а здесь вызываем, потому что оно будет выполняться строго после условия.
+            closeModal(); 
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.code === "Escape" && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
 });
 
 
