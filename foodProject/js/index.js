@@ -156,5 +156,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    window.addEventListener('scroll', showModalByScroll); // {once: true} не подходит из за scroll. Как только немного прокрутим оно слетает.
+    window.addEventListener('scroll', showModalByScroll); 
+    // {once: true} не подходит из за scroll. Как только немного прокрутим оно слетает.
 });
