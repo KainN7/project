@@ -66,8 +66,26 @@
 
 const btn = document.querySelector('button');
 
-btn.addEventListener('click', function() {
-    this.style.backgroundColor = 'red';
+btn.addEventListener('click', (e) => {
+    e.target.style.backgroundColor = 'red';
 });
 // Когда обработчик событий написан в классическом режиме function()
 // тогда контекст вызова будет сам элемент на котором произошло событие.
+
+const obj = {
+    num: 5,
+    sayNumber: function() {
+        const say = () => {
+            console.log(this.num);
+        };
+
+        say();
+    }
+};
+
+obj.sayNumber();
+
+const double = a => a * 2;
+
+console.log(double(4));
+   
